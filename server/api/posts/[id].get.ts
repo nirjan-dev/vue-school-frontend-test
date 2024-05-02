@@ -31,14 +31,16 @@ export default defineEventHandler(async (event): Promise<PostWithUser> => {
     query.innerJoin(tables.users, eq(tables.posts.userId, tables.users.id));
   }
 
-  const post = await query;
+  const postResponse = await query;
 
-  if (!post.at(0)) {
+  const post = postResponse.at(0);
+
+  if (!post) {
     throw createError({
       status: 404,
       message: "Post not found",
     });
   }
 
-  return post.at(0);
+  return post as PostWithUser;
 });

@@ -1,19 +1,6 @@
-export interface Post {
-  id?: string;
-  image?: string;
-  title?: string;
-  content?: string;
-  excerpt?: string;
-  userId?: string;
-  publishedAt?: number;
-}
+import type { Post as DBPost, User as DBUser } from "~/server/utils/drizzle";
 
-export interface User {
-  id?: string;
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  avatar?: string;
-}
+export interface Post extends Partial<DBPost> {}
+export interface User extends Partial<DBUser> {}
 
 export type PostWithUser = Post & { user: User };

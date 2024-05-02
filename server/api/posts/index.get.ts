@@ -40,8 +40,8 @@ export default defineEventHandler(async (event): Promise<PostWithUser> => {
       .offset(payload.offset)
       .orderBy(
         payload.order === "newestFirst"
-          ? asc(tables.posts.publishedAt)
-          : desc(tables.posts.publishedAt)
+          ? desc(tables.posts.publishedAt)
+          : asc(tables.posts.publishedAt)
       );
 
     if (payload.include === "user") {

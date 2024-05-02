@@ -22,23 +22,9 @@
         <div class="px-4 py-2 grid gap-2">
           <h2 class="text-2xl font-bold">{{ post.title }}</h2>
           <p class="opacity-80">{{ post.excerpt }}</p>
-          <div class="flex gap-6 items-center mb-4">
-            <div class="flex gap-2 items-center">
-              <NuxtImg
-                width="30"
-                height="30"
-                class="rounded-full"
-                v-if="post.user?.avatar"
-                :src="post.user?.avatar"
-              ></NuxtImg>
-              <p class="text-sm">
-                {{ post.user?.firstName }} {{ post.user?.lastName }}
-              </p>
-            </div>
-            <time class="opacity-70">{{ formatDate(post.publishedAt) }}</time>
-          </div>
+          <PostMeta :user="post.user" :publishedAt="post.publishedAt" />
           <NuxtLink
-            class="text-center hover:bg-green-700 transition-colors active:border-b-2 p-3 bg-green-600 border-b-4 rounded-md border-b-green-700 text-white"
+            class="primary-link"
             :to="`/posts/${post.id}`"
             :title="`continue reading about ${post.title}`"
             >Continue reading</NuxtLink
@@ -58,24 +44,11 @@
 
 <script setup lang="ts">
 import type { PostWithUser } from "~/types";
+import PostMeta from "./PostMeta.vue";
 
 defineProps<{
   posts: Partial<PostWithUser>[];
   isLoading: boolean;
   postsCount: number;
 }>();
-
-function formatDate(dateString: null | number | undefined) {
-  if (!dateString) return "";
-
-  const date = new Date(dateString);
-
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    day: "numeric",
-    month: "short",
-  };
-
-  return date.toLocaleDateString("en-US", options);
-}
 </script>

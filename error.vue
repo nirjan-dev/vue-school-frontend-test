@@ -16,12 +16,7 @@ const handleError = () => clearError({ redirect: "/" });
       <h1 class="text-6xl">{{ error?.statusCode }}</h1>
       <p class="text-3xl">{{ error?.message }}</p>
       <div>
-        <button
-          class="p-3 bg-green-600 rounded text-white"
-          @click="handleError"
-        >
-          Back to Home
-        </button>
+        <button class="primary-link" @click="handleError">Back to Home</button>
       </div>
     </div>
   </div>

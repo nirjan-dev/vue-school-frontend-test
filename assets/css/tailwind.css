@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .primary-link {
+      @apply text-center hover:bg-green-700 transition-colors active:border-b-2 p-3 bg-green-600 border-b-4 rounded-md border-b-green-700 text-white;
+    }
+}

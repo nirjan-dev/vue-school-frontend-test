@@ -66,8 +66,7 @@ const {
       offset: offset.value,
       include: "user",
       order: route.query.order ?? "newestFirst",
-      select:
-        "id,title,content,excerpt,publishedAt,image,content,user.firstName, user.lastName, user.avatar, user.email",
+      select: "id,title,excerpt,publishedAt,image",
     },
   });
 });

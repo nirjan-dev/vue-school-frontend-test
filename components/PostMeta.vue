@@ -1,13 +1,14 @@
 <template>
   <div class="flex gap-6 items-center mb-4">
     <div class="flex gap-2 items-center">
-      <NuxtImg
+      <NuxtPicture
         width="30"
         height="30"
-        class="rounded-full"
+        :img-attrs="{ class: 'rounded-full' }"
+        loading="lazy"
         v-if="user?.avatar"
         :src="user?.avatar"
-      ></NuxtImg>
+      ></NuxtPicture>
       <p class="text-sm">{{ user?.firstName }} {{ user?.lastName }}</p>
     </div>
     <time class="opacity-70 text-sm">{{ formatDate(publishedAt) }}</time>

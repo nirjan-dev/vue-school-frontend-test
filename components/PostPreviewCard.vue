@@ -11,6 +11,7 @@
       width="1920"
       height="1080"
       class="rounded-lg"
+      :alt="post.title ?? undefined"
       :placeholder="index < 3 ? false : [50, 25, 75, 5]"
       :loading="index < 3 ? 'eager' : 'lazy'"
       :preload="index === 0 ? true : false"

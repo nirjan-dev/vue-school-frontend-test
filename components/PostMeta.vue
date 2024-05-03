@@ -4,6 +4,7 @@
       <NuxtPicture
         width="30"
         height="30"
+        :alt="user?.firstName + ' ' + user?.lastName"
         :img-attrs="{ class: 'rounded-full' }"
         loading="lazy"
         v-if="user?.avatar"

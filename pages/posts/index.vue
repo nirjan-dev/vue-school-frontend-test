@@ -95,12 +95,29 @@ async function onSortChange() {
   await refresh();
 }
 
+const title = "Blog Posts | SEO Optimized Title here";
+const description = "SEO Optimized Description here";
+const image = posts.value?.[0]?.image;
+
+useSeoMeta({
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: image,
+  twitterCard: "summary",
+  ogImage: image,
+  title,
+  description,
+});
+
 useHead({
-  title: "Blog Posts | SEO Optimized Title here",
-  meta: [
+  htmlAttrs: {
+    lang: "en",
+  },
+  link: [
     {
-      name: "description",
-      content: "SEO Optimized Description here",
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon.png",
     },
   ],
 });

@@ -35,4 +35,7 @@ export default defineNuxtConfig({
   sitemap: {
     sources: ["/api/__sitemap__/urls"],
   },
+  ogImage: {
+    enabled: false,
+  },
 });
